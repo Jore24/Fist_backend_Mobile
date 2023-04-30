@@ -4,6 +4,8 @@ import http from "http";
 import logger from "morgan";
 import cors from "cors";
 import userRoutes from "./routes/userRoutes.js";
+import passport from 'passport';
+import { passport as passportConfig } from "./config/passport.js";
 
 const app = express();
 const server = http.createServer(app);
@@ -12,6 +14,10 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use(passport.initialize());
+app.use(passport.session());
+passportConfig(passport);
+//posible error
 
 app.disable("x-powered-by");
 app.set("port", port);

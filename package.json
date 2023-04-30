@@ -11,10 +11,14 @@
   "author": "\u001b[A\u001b[C\u001b[0rito",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "http": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.0",
     "morgan": "^1.10.0",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.1"
   }
 }
