@@ -6,6 +6,7 @@ import cors from "cors";
 import userRoutes from "./routes/userRoutes.js";
 import passport from 'passport';
 import { passport as passportConfig } from "./config/passport.js";
+import multer from "multer";
 
 const app = express();
 const server = http.createServer(app);
@@ -21,9 +22,12 @@ passportConfig(passport);
 
 app.disable("x-powered-by");
 app.set("port", port);
+const upload = multer({
+  storage: multer.memoryStorage(),
+})
 
 //rutas del servidor
-userRoutes(app);
+userRoutes(app, upload);
 
 //usar la ip del servidor, puerto y localhost
 server.listen(3000, '192.168.1.26' || 'localhost', function () {
